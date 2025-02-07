@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TodoItem from "./todo/TodoItem";
-import TodoForm from "./todo/TodoForm";
+import TodoForm from "./TodoForm";
+import TodoList from "./TodoList";
 
 const SAMPLE_TODOS = [
   { id: 1, text: "Buy milk", completed: false },
@@ -15,10 +15,9 @@ const SAMPLE_TODOS = [
   { id: 10, text: "Write code", completed: false },
 ];
 
-const TodoList = () => {
+const TodoContainer = () => {
   const [todos, setTodos] = useState(SAMPLE_TODOS);
   const [TodoText, setTodoText] = useState("");
-  //const [const, setConst] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +30,7 @@ const TodoList = () => {
       { id: crypto.randomUUID(), text: TodoText, completed: false },
       ...todos,
     ]);
+
     setTodoText("");
   };
 
@@ -39,28 +39,20 @@ const TodoList = () => {
   };
 
   const handleToggleCompleted = (id) => {
-    const updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          completed: !todo.completed,
-        };
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id
+          ? {
+              ...todo,
+              completed: !todo.completed,
+            }
+          : todo
+      )
+    );
   };
 
   const handleDelete = (id) => {
-    const filteredTodos = todos.filter((todo) => {
-      if (todo.id === id) {
-        return false;
-      }
-
-      return true;
-    });
-
-    setTodos(filteredTodos);
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -70,20 +62,14 @@ const TodoList = () => {
         TodoText={TodoText}
         handleChangeTodoText={handleChangeTodoText}
       />
-      <ul>
-        {todos.map(({ id, text, completed }) => (
-          <TodoItem
-            key={id}
-            completed={completed}
-            text={text}
-            handleToggleCompleted={handleToggleCompleted}
-            handleDelete={handleDelete}
-            id={id}
-          />
-        ))}
-      </ul>
+
+      <TodoList
+        todos={todos}
+        handleToggleCompleted={handleToggleCompleted}
+        handleDelete={handleDelete}
+      />
     </div>
   );
 };
 
-export default TodoList;
+export default TodoContainer;
