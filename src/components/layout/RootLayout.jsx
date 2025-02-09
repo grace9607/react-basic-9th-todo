@@ -1,18 +1,21 @@
+import styled from "styled-components";
+
 // //Compositional Layout
-// const RootLayout = ({ children }) => {
-//   return (
-//     <main>
-//       <header>
-//         <h1>Header</h1>
-//       </header>
+const RootLayout = ({ children }) => {
+  return (
+    <MainContainer>
+      <MainContent>{children}t</MainContent>
+    </MainContainer>
+  );
+};
 
-//       <div>{children}t</div>
+const MainContainer = styled.main`
+  min-height: 100vh;
+  background-color: #f6f5f8;
+`;
 
-//       <footer>
-//         <h1>Footer</h1>
-//       </footer>
-//     </main>
-//   );
-// };
-
-// export default RootLayout;
+const MainContent = styled.div`
+  max-width: 768px;
+  margin: 0 auto;
+`;
+export default RootLayout;
