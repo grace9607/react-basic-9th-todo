@@ -4,7 +4,7 @@ import styled from "styled-components";
 const RootLayout = ({ children }) => {
   return (
     <MainContainer>
-      <MainContent>{children}t</MainContent>
+      <MainContent>{children}</MainContent>
     </MainContainer>
   );
 };
