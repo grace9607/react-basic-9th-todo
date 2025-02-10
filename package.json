@@ -14,7 +14,7 @@
     "lucide-react": "^0.475.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "styled-components": "^6.1.15",
+    "styled-components": "5.3.11",
     "the-new-css-reset": "^1.11.3"
   },
   "devDependencies": {

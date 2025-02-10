@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 import TodoDashboard from "./TodoDashboard";
@@ -41,18 +42,24 @@ const TodoContainer = () => {
   };
 
   return (
-    <div>
+    <TodoContainerWrapper>
       <TodoDashboard />
-
-      <TodoForm addTodos={addTodos} />
 
       <TodoList
         todos={todos}
         toggleTodoCompleted={toggleTodoCompleted}
         DeleteTodo={DeleteTodo}
       />
-    </div>
+
+      <TodoForm addTodos={addTodos} />
+    </TodoContainerWrapper>
   );
 };
+
+const TodoContainerWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+`;
 
 export default TodoContainer;
