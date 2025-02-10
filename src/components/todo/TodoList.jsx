@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todos, toggleTodoCompleted, DeleteTodo }) => {
+const TodoList = ({ todos, toggleTodoCompleted, deleteTodo }) => {
   return (
     <TodoListSection>
       <TodoListHeader>Tasks</TodoListHeader>
@@ -13,7 +13,7 @@ const TodoList = ({ todos, toggleTodoCompleted, DeleteTodo }) => {
             completed={completed}
             text={text}
             toggleTodoCompleted={toggleTodoCompleted}
-            DeleteTodo={DeleteTodo}
+            deleteTodo={deleteTodo}
             id={id}
           />
         ))}
@@ -23,8 +23,8 @@ const TodoList = ({ todos, toggleTodoCompleted, DeleteTodo }) => {
 };
 
 const TodoListSection = styled.section`
-  display: Flex;
-  flex-direction: Column;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 `;
 

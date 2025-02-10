@@ -1,4 +1,4 @@
-import RootLayout from "./components/layout/Rootlayout";
+import RootLayout from "./components/layout/RootLayout";
 import TodoContainer from "./components/todo/TodoContainer";
 
 const App = () => {

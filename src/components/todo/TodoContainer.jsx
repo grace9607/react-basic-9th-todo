@@ -37,7 +37,7 @@ const TodoContainer = () => {
     );
   };
 
-  const DeleteTodo = (id) => {
+  const deleteTodo = (id) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
@@ -48,7 +48,7 @@ const TodoContainer = () => {
       <TodoList
         todos={todos}
         toggleTodoCompleted={toggleTodoCompleted}
-        DeleteTodo={DeleteTodo}
+        deleteTodo={deleteTodo}
       />
 
       <TodoForm addTodos={addTodos} />
