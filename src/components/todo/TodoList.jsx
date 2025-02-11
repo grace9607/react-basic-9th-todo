@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todos, toggleTodoCompleted, deleteTodo }) => {
+const TodoList = () => {
   return (
     <TodoListSection>
       <TodoListHeader>Tasks</TodoListHeader>
