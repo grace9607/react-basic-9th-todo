@@ -1,18 +1,21 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { TodoContext } from "../../context/TodoContext";
+import { Link } from "react-router";
 
 const TodoItem = ({ completed, text, id }) => {
   const { toggleTodoCompleted, deleteTodo } = useContext(TodoContext);
+
   return (
     <TodoItemWrapper>
-      <TodoItemText $completed={completed}>{text}</TodoItemText>
+      <TodoItemLink to={`/todos/${id}`} $completed={completed}>
+        {text}
+      </TodoItemLink>
 
       <TodoItemActions>
         <ActionButton
           onClick={() => toggleTodoCompleted(id)}
-          $bgColor={completed ? "#242424" : "#582be6"}
-        >
+          $bgColor={completed ? "#242424" : "#582be6"}>
           {completed ? "취소하기" : "완료하기"}
         </ActionButton>
 
@@ -32,14 +35,22 @@ const TodoItemWrapper = styled.li`
   border-radius: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 `;
 
-const TodoItemText = styled.p`
+const TodoItemLink = styled(Link)`
   text-decoration: ${({ $completed }) =>
     $completed ? "line-through" : "none"};
+  color: inherit;
+
+  &:hover {
+    text-decoration: Underline;
+  }
 `;
 
-const TodoItemActions = styled.div`
+const TodoItemActions = styled(Link)`
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
