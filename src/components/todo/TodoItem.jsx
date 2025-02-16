@@ -50,9 +50,10 @@ const TodoItemLink = styled(Link)`
   }
 `;
 
-const TodoItemActions = styled(Link)`
+const TodoItemActions = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.5rem;
 `;
 
@@ -63,6 +64,8 @@ export const ActionButton = styled.button`
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  word-break: keep-all;
+  text-align: center;
 
   &:hover {
     opacity: 0.8;
