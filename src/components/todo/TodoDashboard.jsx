@@ -25,7 +25,7 @@ const TodoDashboard = () => {
             </TodoDashboardCardContent>
           </TodoDashboardCard>
         </TodoDashboardCardWrapper>
-        <TodoDashboardCardWrapper $flex={1}>
+        <TodoDashboardCardWrapper>
           <TodoDashboardCard $bgColor="#582be6">
             <div>
               <LaptopMinimal />
@@ -35,7 +35,7 @@ const TodoDashboard = () => {
             </TodoDashboardCardContent>
           </TodoDashboardCard>
         </TodoDashboardCardWrapper>
-        <TodoDashboardCardWrapper $flex={1}>
+        <TodoDashboardCardWrapper>
           <TodoDashboardCard $bgColor="#242424">
             <div>
               <Video />
@@ -76,7 +76,7 @@ const TodoDashboardCard = styled.button`
   display: flex;
   flex-direction: column;
   width: 100%;
-  flex: 1;
+  /* flex: 1; */
   height: 184px;
   background-color: ${({ $bgColor = "#e6582b" }) => $bgColor};
   justify-content: space-between;

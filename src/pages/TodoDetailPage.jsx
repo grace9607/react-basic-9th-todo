@@ -16,7 +16,7 @@ const TodoDetailPage = () => {
         <TodoItem
           id={targetTodoItem.id}
           text={targetTodoItem.text}
-          completed={targetTodoItem.com}
+          completed={targetTodoItem.completed}
         />
       ) : (
         <p>해당하는 데이터를 찾을 수 없습니다.</p>
@@ -28,10 +28,6 @@ const TodoDetailPage = () => {
     </DetailPageWrapper>
   );
 };
-
-<BackLink to="/">
-  <ActionButton $bgColor="#242424">돌아가기</ActionButton>
-</BackLink>;
 
 const DetailPageWrapper = styled.section`
   display: flex;
